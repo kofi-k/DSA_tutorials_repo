@@ -9,16 +9,16 @@ public class Main {
         list.add(7);        list.add(8);         list.add(9);
         list.add(10);
 
-        Object result = binarySearch(list, 1);
+        Integer result = binarySearch(list, 9);
         verify(result);
 
     }
 
-    public static Object binarySearch(List<Integer> list, int target) {
+    public static Integer binarySearch(List<Integer> list, int target) {
         int first = 0;
         int last = list.size() - 1;
         while (first <= last) {
-            int midpoint = Math.round((first + last) / 2);
+            int midpoint = Math.round((first + last) >> 1);
 
             if(list.get(midpoint).equals(target)) return midpoint;
             else if (list.get(midpoint) < target) first = midpoint +1;
@@ -28,7 +28,7 @@ public class Main {
         return null;
     }
 
-    public static void verify(Object index) {
+    public static void verify(Integer index) {
         if (index != null) {
             System.out.println("Target found at index: " + index);
         } else {
