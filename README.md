@@ -5,4 +5,4 @@ Repo containing my code samples for data structures and algorithms lessons.
 - Java
 
 The algorithms in the lesson were written in python.
-The java codes are directly converted from my python.
+The java codes are directly converted from my python code.
