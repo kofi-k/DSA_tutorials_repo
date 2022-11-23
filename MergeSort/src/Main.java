@@ -4,20 +4,20 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         List<Integer> unsortedList = new ArrayList<>();
-        unsortedList.add(11);        unsortedList.add(23);         unsortedList.add(3);
-        unsortedList.add(10);        unsortedList.add(2);         unsortedList.add(6);
-        unsortedList.add(7);        unsortedList.add(8);         unsortedList.add(19);
-        unsortedList.add(1);
+        unsortedList.add(11);       unsortedList.add(23);       unsortedList.add(3);
+        unsortedList.add(10);       unsortedList.add(2);        unsortedList.add(6);
+        unsortedList.add(7);        unsortedList.add(8);        unsortedList.add(19);
+        unsortedList.add(1);        unsortedList.add(5);        unsortedList.add(13);
         List<Integer> sortedAndMerged = merge_sort(unsortedList);
         System.out.println("Unsorted List "+unsortedList);
         System.out.println("List after merge sort "+ sortedAndMerged);
-        System.out.println("Verify list well sorted "+ verifySortedList(sortedAndMerged) );
+        System.out.println("Verify list well sorted: "+ verifySortedList(sortedAndMerged).toString().toUpperCase());
     }
     public static List<Integer> merge_sort(List<Integer> list){
         if (list.size() <= 1)
             return list;
-        List<Integer> leftList  = split(list).getLeftList();
-        List<Integer> rightList  = split(list).getRightList();
+        List<Integer> leftList  = merge_sort(split(list).getLeftList());
+        List<Integer> rightList  = merge_sort(split(list).getRightList());
 
         return merge_list(leftList, rightList);
     }
